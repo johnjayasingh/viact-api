@@ -1,56 +1,52 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { async } from 'rxjs/internal/scheduler/async';
 import { databaseProviders } from '../database/database.providers';
-import { companyProviders } from './company.provider';
-import { CompanyService } from './company.service';
+import { EngineProviders } from './engine.provider';
+import { EngineService } from './engine.service';
 
-describe('CompanyService', () => {
-  let service: CompanyService;
+describe('EngineService', () => {
+  let service: EngineService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [...databaseProviders, ...companyProviders, CompanyService],
+      providers: [...databaseProviders, ...EngineProviders, EngineService],
     }).compile();
 
-    service = module.get<CompanyService>(CompanyService);
+    service = module.get<EngineService>(EngineService);
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-
-  it('should be creating Company', async () => {
+  it('should be creating Engine', async () => {
     expect(service).toBeDefined();
     await service.create({
+      name: 'Test',
+      color: '#FFF',
       id: 'real',
-      name: 'Test',
-      officeHours: '10:00-10:00',
-      title: 'Page Title',
     });
   });
 
-  it('should be creating Company', async () => {
+  it('should be creating Engine', async () => {
     expect(service).toBeDefined();
     await service.create({
-      id: 'test',
       name: 'Test',
-      officeHours: '10:00-10:00',
-      title: 'Page Title',
+      color: '#FFF',
+      id: 'test',
     });
   });
 
-  it('should be creating Company', async () => {
+  it('should be creating Engine', async () => {
     expect(service).toBeDefined();
     const data = await service.findAll();
     expect(data.length).toBeGreaterThan(0);
   });
 
-  it('should be delete test Company', async () => {
+  it('should be delete test Engine', async () => {
     expect(service).toBeDefined();
     const data = await service.findOne({ id: 'test' });
     expect(data).toBeDefined();
     await service.delete({
-      id: 'test',
+      id: data.id,
     });
   });
 });

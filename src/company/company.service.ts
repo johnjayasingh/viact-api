@@ -28,15 +28,11 @@ export class CompanyService {
     return this.companyModel.findOne(filter).exec();
   }
 
-  find(id: string): Promise<any> {
-    return this.companyModel.findById(id).exec();
+  update(filter, body: any = {}): Promise<any> {
+    return this.companyModel.findOneAndUpdate(filter, body).exec();
   }
 
-  update(id: string, body: any = {}): Promise<any> {
-    return this.companyModel.findByIdAndUpdate(id, body).exec();
-  }
-
-  delete(id: string): Promise<any> {
-    return this.companyModel.findByIdAndDelete(id).exec();
+  delete(filter): Promise<any> {
+    return this.companyModel.findOneAndDelete(filter).exec();
   }
 }
