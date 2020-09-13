@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { EngineController } from './Engine.controller';
-import { EngineProviders } from './Engine.provider';
+import { engineProviders } from './Engine.provider';
 import { EngineService } from './Engine.service';
 
 @Module({
   controllers: [EngineController],
-  providers: [EngineService, ...EngineProviders],
+  providers: [EngineService, ...engineProviders],
 })
 export class EngineModule {}
