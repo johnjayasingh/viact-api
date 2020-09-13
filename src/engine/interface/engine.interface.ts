@@ -6,5 +6,4 @@ export interface Engine extends Document {
   readonly color: string;
   readonly sms: boolean;
   readonly email: boolean;
-  readonly requireApproval: boolean;
 }

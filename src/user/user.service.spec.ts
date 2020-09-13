@@ -17,20 +17,10 @@ describe('UserService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-  it('should be creating User', async () => {
-    expect(service).toBeDefined();
-    await service.create({
-      name: 'Test',
-      color: '#FFF',
-      id: 'real',
-    });
-  });
 
   it('should be creating User', async () => {
     expect(service).toBeDefined();
     await service.create({
-      name: 'Test',
-      color: '#FFF',
       id: 'test',
     });
   });

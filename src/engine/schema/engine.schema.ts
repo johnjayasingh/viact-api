@@ -10,7 +10,6 @@ export const EngineSchema = new mongoose.Schema(
     color: String,
     sms: Boolean,
     email: Boolean,
-    requireApproval: Boolean,
   },
   {
     id: false,
