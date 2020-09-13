@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const EngineSchema = new mongoose.Schema(
+export const CameraSchema = new mongoose.Schema(
   {
     id: {
       type: String,

@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface Engine extends Document {
+export interface Camera extends Document {
   readonly id: string;
   readonly name: string;
   readonly color: string;

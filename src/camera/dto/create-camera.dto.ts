@@ -1,4 +1,4 @@
-export class CreateEngineDto {
+export class CreateCameraDto {
   readonly id: string;
   readonly name: string;
   readonly color: string;

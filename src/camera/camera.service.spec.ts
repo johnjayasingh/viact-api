@@ -1,23 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { databaseProviders } from '../database/database.providers';
-import { EngineProviders } from './engine.provider';
-import { EngineService } from './engine.service';
+import { CameraProviders } from './camera.provider';
+import { CameraService } from './camera.service';
 
-describe('EngineService', () => {
-  let service: EngineService;
+describe('CameraService', () => {
+  let service: CameraService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [...databaseProviders, ...EngineProviders, EngineService],
+      providers: [...databaseProviders, ...CameraProviders, CameraService],
     }).compile();
 
-    service = module.get<EngineService>(EngineService);
+    service = module.get<CameraService>(CameraService);
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-  it('should be creating Engine', async () => {
+  it('should be creating Camera', async () => {
     expect(service).toBeDefined();
     try {
       await service.create({
@@ -28,13 +28,13 @@ describe('EngineService', () => {
     } catch (error) {}
   });
 
-  it('should be creating Engine', async () => {
+  it('should be creating Camera', async () => {
     expect(service).toBeDefined();
     const data = await service.findAll();
     expect(data.length).toBeGreaterThan(0);
   });
 
-  it('should be Engine', async () => {
+  it('should be Camera', async () => {
     expect(service).toBeDefined();
     const data = await service.findOne({ id: 'test' });
     expect(data).toBeDefined();
