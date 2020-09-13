@@ -1,5 +1,10 @@
 import * as mongoose from 'mongoose';
-import { ENGINE_MODEL, PROJECT_MODEL } from './../../constants';
+import {
+  CAMERA_MODEL,
+  ENGINE_MODEL,
+  PROJECT_MODEL,
+  USER_MODEL,
+} from './../../constants';
 
 export const CompanySchema = new mongoose.Schema(
   {
@@ -10,6 +15,7 @@ export const CompanySchema = new mongoose.Schema(
     name: String,
     title: String,
     subscriptionEndsOn: Date,
+    officeHours: String,
     engines: [
       {
         requireApproval: Boolean,
@@ -29,7 +35,18 @@ export const CompanySchema = new mongoose.Schema(
         },
       },
     ],
-    officeHours: String,
+    users: [
+      {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: USER_MODEL,
+      },
+    ],
+    cameras: [
+      {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: CAMERA_MODEL,
+      },
+    ],
   },
   {
     id: false,

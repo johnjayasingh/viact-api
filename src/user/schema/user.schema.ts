@@ -1,5 +1,4 @@
 import * as mongoose from 'mongoose';
-import { COMPANY_MODEL } from './../../constants';
 
 export const UserSchema = new mongoose.Schema(
   {
@@ -7,12 +6,18 @@ export const UserSchema = new mongoose.Schema(
       type: String,
       unique: true,
     },
-    companies: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: COMPANY_MODEL,
-      },
-    ],
+    notification: {
+      email: Boolean,
+      sms: Boolean,
+      webex: Boolean,
+      push: Boolean,
+    },
+    permission: {
+      reporting: Boolean,
+      cameraManagement: Boolean,
+      userManagement: Boolean,
+      detectionManagement: Boolean,
+    },
   },
   {
     id: false,
