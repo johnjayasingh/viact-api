@@ -11,12 +11,32 @@ export class CompanyService {
     private companyModel: Model<Company>,
   ) {}
 
-  async create(createCompanyDto: CreateCompanyDto): Promise<Company> {
+  create(createCompanyDto: CreateCompanyDto): Promise<Company> {
     const createdCat = new this.companyModel(createCompanyDto);
     return createdCat.save();
   }
 
-  async findAll(): Promise<Company[]> {
+  findAll(): Promise<Company[]> {
     return this.companyModel.find().exec();
+  }
+
+  findDistinct(filter, field: string): Promise<any> {
+    return this.companyModel.find(filter).distinct(field).exec();
+  }
+
+  findOne(filter): Promise<any> {
+    return this.companyModel.findOne(filter).exec();
+  }
+
+  find(id: string): Promise<any> {
+    return this.companyModel.findById(id).exec();
+  }
+
+  update(id: string, body: any = {}): Promise<any> {
+    return this.companyModel.findByIdAndUpdate(id, body).exec();
+  }
+
+  delete(id: string): Promise<any> {
+    return this.companyModel.findByIdAndDelete(id).exec();
   }
 }

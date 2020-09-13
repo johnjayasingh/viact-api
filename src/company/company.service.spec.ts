@@ -32,4 +32,18 @@ describe('CompanyService', () => {
     const data = await service.findAll();
     expect(data.length).toBeGreaterThan(0);
   });
+
+  it('should be delete all Company', async () => {
+    expect(service).toBeDefined();
+    const data = await service.findAll();
+    await data.forEach(async (company) => {
+      await service.delete(company.id);
+    });
+  });
+
+  it('should be empty', async () => {
+    expect(service).toBeDefined();
+    const data = await service.findAll();
+    expect(data.length).toBe(0);
+  });
 });
