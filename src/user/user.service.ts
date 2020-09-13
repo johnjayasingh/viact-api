@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { ENGINE_MODEL } from '../constants';
+import { USER_MODEL } from '../constants';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './interface/user.interface';
 
 @Injectable()
 export class UserService {
   constructor(
-    @Inject(ENGINE_MODEL)
+    @Inject(USER_MODEL)
     private UserModel: Model<User>,
   ) {}
 
