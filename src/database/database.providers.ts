@@ -9,6 +9,11 @@ export const databaseProviders = [
         `mongodb://rwuser:${encodeURIComponent(
           'Viact_123',
         )}@159.138.40.164:8635/tesdevelop?authSource=admin`,
+        {
+          useUnifiedTopology: true,
+          useNewUrlParser: true,
+          useCreateIndex: true,
+        },
       ),
   },
 ];
